@@ -26,8 +26,7 @@ This application is designed to be explanatory—helping users understand price 
 
 my_xrp_dash_app/  
 ├── app.py  
-├── data/  
-│   └── xrp.csv              # XRP‐USD daily history (2015–2022) from Kaggle  
+├── xrp.csv                  # XRP‐USD daily history (2015–2022) from Kaggle  
 ├── requirements.txt         # Python dependencies  
 └── README.md                # This file  
 
