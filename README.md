@@ -1,6 +1,7 @@
 # XRP‐USD Explorer (Dash Application)
 
 **Author:** Jordon Abrams 
+
 **Date:** June 4, 2025  
 
 ---
@@ -23,12 +24,12 @@ This application is designed to be explanatory—helping users understand price 
 
 ## 2. Folder Structure
 
-my_xrp_dash_app/
-├── app.py
-├── data/
-│ └── xrp.csv # XRP‐USD daily history (2015–2022) from Kaggle
-├── requirements.txt # Python dependencies
-└── README.md
+my_xrp_dash_app/  
+├── app.py  
+├── data/  
+│   └── xrp.csv              # XRP‐USD daily history (2015–2022) from Kaggle  
+├── requirements.txt         # Python dependencies  
+└── README.md                # This file  
 
 
 - `app.py`  
@@ -50,7 +51,6 @@ my_xrp_dash_app/
     [https://www.kaggle.com/datasets/kaushiksuresh147/top-10-cryptocurrencies-historical-dataset](https://www.kaggle.com/datasets/kaushiksuresh147/top-10-cryptocurrencies-historical-dataset)  
   - Extract only the XRP portion (rows where `Name` or `Symbol` equals “XRP”) and save it as `xrp.csv`.  
   - This covers **2015-01-01** through **2022-12-31** for XRP.
-    ```
   - This covers **2015-01-01 00:00 UTC** through **2022-12-31 00:00 UTC**.
     
 - **Contents of `xrp.csv`:**  
@@ -79,21 +79,26 @@ cd xrp-dash-app
 It is strongly recommended to use a virtual environment to avoid conflicts with other Python packages on your system.
 
 Windows
-
+```bash
 python -m venv venv
 venv\Scripts\activate
+```
 
 Mac OS / Linux
-
+```bash
 python3 -m venv venv
 source venv/bin/activate
+```
 
 Once activated, your prompt should show (venv) at the beginning.
 
 ### 4.3. Install Dependencies
+
 With the virtual environment activated, install required packages:
 
+```bash
 pip install -r requirements.txt
+```
 
 This will install:
 dash>=2.0.0
@@ -106,7 +111,9 @@ Ensure that xrp.csv exists in your project folder. If you cloned from GitHub and
 ## 5. Running the App
 Within the same terminal (and virtual environment), run:
 
+```bash
 python app.py
+```
 
 You should see output similar to:
 
@@ -122,63 +129,63 @@ http://127.0.0.1:8050/
 
 ## 6. How to Use the App
 
-Select a Date Range (top‐left):
+- **Select a Date Range (top‐left):**
 
-Click the calendar icons or type directly to choose any start and end dates between 2015-01-22 and 2022-08-23.
+  - Click the calendar icons or type directly to choose any start and end dates between 2015-01-22 and 2022-08-23.
 
-If you pick a start date after the end date, a warning appears; correct the order before proceeding.
+  - If you pick a start date after the end date, a warning appears; correct the order before proceeding.
 
-Adjust the Moving Average Window (top‐center):
+- **Adjust the Moving Average Window (top‐center):**
 
-Use the slider to set the window length (1–60 days).
+  - Use the slider to set the window length (1–60 days).
 
-The dashed red line on the “Price + MA” chart updates to reflect your chosen window.
+  - The dashed red line on the “Price + MA” chart updates to reflect your chosen window.
 
-The text below the slider shows “Using a X-day moving average.”
+  - The text below the slider shows “Using a X-day moving average.”
 
-Toggle Y-Axis Scale (top‐right of slider):
+- **Toggle Y-Axis Scale (top‐right of slider):**
 
-Pick “Linear” or “Logarithmic.”
+  - Pick “Linear” or “Logarithmic.”
 
-This only affects the Y-axis of the “Price + MA” chart (allows you to spot percentage moves on long periods).
+  - This only affects the Y-axis of the “Price + MA” chart (allows you to spot percentage moves on long periods).
 
-Highlight a Specific Date (far top‐right):
+- **Highlight a Specific Date (far top‐right):**
 
-Type any date in the format YYYY-MM-DD.
+  - Type any date in the format YYYY-MM-DD.
 
-If it is (a) formatted correctly, (b) within your selected date range, and (c) exists in xrp.csv, a red vertical line will appear on the “Price + MA” chart and a red “✕” marker will appear on the “Returns Over Time” chart.
+  - If it is (a) formatted correctly, (b) within your selected date range, and (c) exists in xrp.csv, a red vertical line will appear on the “Price + MA” chart and a red “✕” marker will appear on the “Returns Over Time” chart.
 
-If invalid, the text below will show an error (e.g., “Date not found in dataset”).
+  - If invalid, the text below will show an error (e.g., “Date not found in dataset”).
 
 ### 6.1 Interpreting the Four Plots
 
-**XRP Close Price + Moving Avg**
+- **XRP Close Price + Moving Avg**
 
-Blue Line = daily closing price (USD) for XRP.
+  - Blue Line = daily closing price (USD) for XRP.
 
-Red Dashed Line = simple moving average of the past X days (where X = slider value).
+  - Red Dashed Line = simple moving average of the past X days (where X = slider value).
 
-Highlight Vertical Line (if a date is entered) = visually marks that specific trading day.
+  - Highlight Vertical Line (if a date is entered) = visually marks that specific trading day.
 
-**Histogram of Daily Returns (%)**
+- **Histogram of Daily Returns (%)**
 
-Bins the daily percentage changes (Return = (Closeⁿ − Closeⁿ⁻¹)/Closeⁿ⁻¹ × 100) within the selected date range.
+  - Bins the daily percentage changes (Return = (Closeⁿ − Closeⁿ⁻¹)/Closeⁿ⁻¹ × 100) within the selected date range.
 
-Shows frequency of small vs. large positive or negative returns.
+  - Shows frequency of small vs. large positive or negative returns.
 
-**XRP Daily Returns Over Time**
+- **XRP Daily Returns Over Time**
 
-Plots daily % returns as a time series.
+  - Plots daily % returns as a time series.
 
-If you highlight a date, a red “✕” marks that day’s return (with a hover tooltip).
+  - If you highlight a date, a red “✕” marks that day’s return (with a hover tooltip).
 
-**30-Day Rolling Volatility (%)**
+- **30-Day Rolling Volatility (%)**
 
-Plots the rolling standard deviation of daily returns over a 30-day window.
+  - Plots the rolling standard deviation of daily returns over a 30-day window.
 
-This is a measure of short‐term volatility—high values indicate more fluctuation, lower values indicate calmer price action.
+  - This is a measure of short‐term volatility—high values indicate more fluctuation, lower values indicate calmer price action.
 
-**Hovering over any point in these charts will display exact values. Use the Plotly toolbar in each chart’s upper right corner to pan, zoom, reset axes, or download a PNG snapshot.**
+- **Hovering over any point in these charts will display exact values. Use the Plotly toolbar in each chart’s upper right corner to pan, zoom, reset axes, or download a PNG snapshot.**
 
 ## 7. Troubleshooting
 
@@ -186,27 +193,36 @@ This is a measure of short‐term volatility—high values indicate more fluctua
 
 Ensure you have activated your virtual environment:
 
+```bash
 source venv/bin/activate       # macOS/Linux
+```
+
+```bash
 venv\Scripts\activate          # Windows
+```
 
 Then run:
 
+```bash
 pip install -r requirements.txt
+```
 
 2. Date Picker Limits
 
-If you try selecting a date before 2015-01-22 or after 2022-08-23, the date picker won’t allow it. Those are the earliest and latest dates in xrp.csv.
+- If you try selecting a date before 2015-01-22 or after 2022-08-23, the date picker won’t allow it. Those are the earliest and latest dates in xrp.csv.
 
-Highlight Date Doesn’t Show
+- Highlight Date Doesn’t Show:
 
-Make sure you type in exactly YYYY-MM-DD. If it isn’t in the dataset (e.g. a weekend or holiday when XRP didn’t trade), you’ll see “Date not found in dataset.”
+    - Make sure you type in exactly YYYY-MM-DD. If it isn’t in the dataset (e.g. a weekend or holiday when XRP didn’t trade), you’ll see “Date not found in dataset.”
 
-App Doesn’t Load (Port in Use)
+- App Doesn’t Load (Port in Use). If port 8050 is already occupied, you can run on a different port:
 
-If port 8050 is already occupied, you can run on a different port:
-
+```bash
 python app.py --port 8051
+```
 
-Or, if using a newer version of Dash that uses app.run(...), you can specify:
+- If using a newer version of Dash that uses app.run(...), you can specify:
 
+```bash
 app.run(debug=True, port=8051)
+```
