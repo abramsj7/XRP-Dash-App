@@ -24,11 +24,11 @@ This application is designed to be explanatory—helping users understand price 
 
 ## 2. Folder Structure
 
-my_xrp_dash_app/  
+xrp-dash-app/  
 ├── app.py  
-├── xrp.csv                  # XRP‐USD daily history (2015–2022) from Kaggle  
-├── requirements.txt         # Python dependencies  
-└── README.md                # This file  
+├── xrp.csv                  
+├── requirements.txt         
+└── README.md              
 
 
 - `app.py`  
@@ -88,11 +88,11 @@ Follow these steps to run the XRP Explorer locally. These instructions assume yo
 
   - Click Code → Download ZIP
 
-  - Unzip the downloaded file locally (you’ll get a folder named XRP-Dash-App-main)
+  - Unzip the downloaded file locally
 
   - cd into that folder
 
-- Option C (Without Git / Install Git)
+- Option C (Install Git)
 
   - If you don’t already have Git installed, follow the instructions below. Once Git is installed, return to Option A above.
 
@@ -107,9 +107,7 @@ Follow these steps to run the XRP Explorer locally. These instructions assume yo
     git --version
     ```
 
-    - Mac OS:
-   
-    - Open terminal and type:
+    - Mac OS (Open terminal and type):
     ```
     git --version
     ```
