@@ -23,12 +23,12 @@ This application is designed to be explanatory—helping users understand price 
 
 ## 2. Folder Structure
 
-*my_xrp_dash_app
-  **app.py
-  **data
-    ***xrp.csv # XRP‐USD daily history (2015–2022)
-  **requirements.txt # Python dependencies
-  **README.md
+my_xrp_dash_app/
+├── app.py
+├── data/
+│ └── xrp.csv # XRP‐USD daily history (2015–2022) from Kaggle
+├── requirements.txt # Python dependencies
+└── README.md
 
 
 - `app.py`  
@@ -73,6 +73,7 @@ Open a terminal or command prompt, then run:
 ```bash
 git clone https://github.com/abramsj7/xrp-dash-app.git
 cd xrp-dash-app
+```
 
 ### 4.2. Create & Activate a Virtual Environment
 It is strongly recommended to use a virtual environment to avoid conflicts with other Python packages on your system.
