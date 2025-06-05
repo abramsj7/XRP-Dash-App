@@ -68,13 +68,59 @@ Follow these steps to run the XRP Explorer locally. These instructions assume yo
 
 ### 4.1. Clone the Repository
 
-Open a terminal or command prompt, then run:
+- Option A (with Git installed)
+
+  - Open a terminal or command prompt, then run:
 
 ```bash
 git clone https://github.com/abramsj7/xrp-dash-app.git
 cd xrp-dash-app
 ```
+- Option B (without Git)
 
+  - Go to https://github.com/abramsj7/XRP-Dash-App
+
+  - Click Code → Download ZIP
+
+  - Unzip the downloaded file locally (you’ll get a folder named XRP-Dash-App-main)
+
+  - cd into that folder
+
+- Option C (Without Git / Install Git)
+
+  - If you don’t already have Git installed, follow the instructions below. Once Git is installed, return to Option A above.
+
+    - Windows:
+
+    - Go to https://git-scm.com/download/win
+
+    - Run the downloaded installer and accept the defaults (make sure “Git from the command line” is selected under PATH).
+
+    - Open a new Command Prompt or PowerShell and verify with:
+    ```
+    git --version
+    ```
+
+    - Mac OS:
+   
+    - Open terminal and type:
+    ```
+    git --version
+    ```
+
+    - Linux (Debian/Ubuntu)
+    ```
+    sudo apt update
+    sudo apt install git
+    git --version
+    ```
+    
+    - Linux (Fedora)
+    ```
+    sudo dnf install git
+    git --version
+    ```
+    
 ### 4.2. Create & Activate a Virtual Environment
 It is strongly recommended to use a virtual environment to avoid conflicts with other Python packages on your system.
 
