@@ -23,22 +23,19 @@ This application is designed to be explanatory—helping users understand price 
 
 ## 2. Folder Structure
 
-
-my_xrp_dash_app/
-├── app.py
-├── data/
-│ └── xrp.csv # XRP‐USD daily history (2015–2022)
-├── requirements.txt # Python dependencies
-└── README.md # This file
+*my_xrp_dash_app
+  **app.py
+  **data
+    ***xrp.csv # XRP‐USD daily history (2015–2022)
+  **requirements.txt # Python dependencies
+  **README.md
 
 
 - `app.py`  
   - The main Dash application. Running `python app.py` launches the app on localhost:8050.
-- `data/xrp.csv`  
+- `xrp.csv`  
   - Contains daily OHLC, volume, and other fields for XRP-USD sourced from Yahoo Finance.  
   - Must be present in this folder for the app to run.
-- `assets/` (optional)  
-  - Any CSS overrides or additional static files. For example, `custom.css` can adjust fonts, margins, or colors.
 - `requirements.txt`  
   - Lists exact package names (and version constraints) needed to run the app.
 - `README.md`  
@@ -49,22 +46,19 @@ my_xrp_dash_app/
 ## 3. Data Source & Licensing
 
 - **Source:**  
-  - Historical XRP-USD daily data was downloaded from Yahoo Finance via the CSV endpoint:  
-    ```
-    https://query1.finance.yahoo.com/v7/finance/download/XRP-USD
-      ?period1=1420070400
-      &period2=1672444800
-      &interval=1d
-      &events=history
-      &includeAdjustedClose=true
+  - The `xrp.csv` file is taken from Kaggle’s “Top-10 Cryptocurrencies Historical Dataset”:  
+    [https://www.kaggle.com/datasets/kaushiksuresh147/top-10-cryptocurrencies-historical-dataset](https://www.kaggle.com/datasets/kaushiksuresh147/top-10-cryptocurrencies-historical-dataset)  
+  - Extract only the XRP portion (rows where `Name` or `Symbol` equals “XRP”) and save it as `xrp.csv`.  
+  - This covers **2015-01-01** through **2022-12-31** for XRP.
     ```
   - This covers **2015-01-01 00:00 UTC** through **2022-12-31 00:00 UTC**.
+    
 - **Contents of `xrp.csv`:**  
   - Columns: `Date, Open, High, Low, Close, Adj Close, Volume` (Currency = “USD”).  
   - We use `Date`, `Close`, and `Volume` to compute daily returns (`Return`) and rolling volatility (`Vol30`).
 - **Licensing:**  
-  - Yahoo Finance data is publicly available for non‐commercial research/educational purposes.  
-  - If you redistribute or deploy, please credit “Yahoo Finance” as the data source.
+  - Kaggle datasets often carry their own terms; this particular dataset is free to use for non‐commercial purposes.  
+  - If you redistribute or deploy, please credit Kaggle and the original dataset author (“kaushiksuresh147”) as the data source.
 
 ---
 
@@ -106,7 +100,7 @@ pandas>=1.3.0
 plotly>=5.0.0
 
 ## 4.4. Verify Data File
-Ensure that xrp.csv exists in your project folder. If you cloned from GitHub and the CSV is included, you’re all set. If not, download the CSV from Yahoo Finance and place it at xrp.csv.
+Ensure that xrp.csv exists in your project folder. If you cloned from GitHub and the CSV is included, you’re all set. If not, download the CSV from the Kaggle link described earlier and set it as xrp.csv.
 
 ## 5. Running the App
 Within the same terminal (and virtual environment), run:
@@ -157,7 +151,7 @@ If invalid, the text below will show an error (e.g., “Date not found in datase
 
 ### 6.1 Interpreting the Four Plots
 
-XRP Close Price + Moving Avg
+**XRP Close Price + Moving Avg**
 
 Blue Line = daily closing price (USD) for XRP.
 
@@ -165,25 +159,25 @@ Red Dashed Line = simple moving average of the past X days (where X = slider val
 
 Highlight Vertical Line (if a date is entered) = visually marks that specific trading day.
 
-Histogram of Daily Returns (%)
+**Histogram of Daily Returns (%)**
 
 Bins the daily percentage changes (Return = (Closeⁿ − Closeⁿ⁻¹)/Closeⁿ⁻¹ × 100) within the selected date range.
 
 Shows frequency of small vs. large positive or negative returns.
 
-XRP Daily Returns Over Time
+**XRP Daily Returns Over Time**
 
 Plots daily % returns as a time series.
 
 If you highlight a date, a red “✕” marks that day’s return (with a hover tooltip).
 
-30-Day Rolling Volatility (%)
+**30-Day Rolling Volatility (%)**
 
 Plots the rolling standard deviation of daily returns over a 30-day window.
 
 This is a measure of short‐term volatility—high values indicate more fluctuation, lower values indicate calmer price action.
 
-Hovering over any point in these charts will display exact values. Use the Plotly toolbar in each chart’s upper right corner to pan, zoom, reset axes, or download a PNG snapshot.
+**Hovering over any point in these charts will display exact values. Use the Plotly toolbar in each chart’s upper right corner to pan, zoom, reset axes, or download a PNG snapshot.**
 
 ## 7. Troubleshooting
 
@@ -204,7 +198,7 @@ If you try selecting a date before 2015-01-22 or after 2022-08-23, the date pick
 
 Highlight Date Doesn’t Show
 
-Make sure you type in exactly YYYY-MM-DD. If it isn’t in the dataset (e.g. a weekend or holiday when XRP didn’t trade), you’ll see “⚠️ Date not found in dataset.”
+Make sure you type in exactly YYYY-MM-DD. If it isn’t in the dataset (e.g. a weekend or holiday when XRP didn’t trade), you’ll see “Date not found in dataset.”
 
 App Doesn’t Load (Port in Use)
 
