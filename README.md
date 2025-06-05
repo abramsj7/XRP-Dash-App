@@ -70,12 +70,19 @@ Follow these steps to run the XRP Explorer locally. These instructions assume yo
 
 - Option A (with Git installed)
 
-  - Open a terminal or command prompt, then run:
+  - Choose a file path where you want the XRP-dash-app files to be located
+  
+  - Open a terminal or command prompt, then "cd" to the file path and run:
 
-```bash
-git clone https://github.com/abramsj7/xrp-dash-app.git
-cd xrp-dash-app
-```
+  ```
+  git clone https://github.com/abramsj7/xrp-dash-app.git
+  ```
+
+   - Once you have downloaded xrp-dash-app to  that file path, "cd" to the xrp-dash-app folder:
+   ```
+   cd xrp-dash-app
+   ```
+  
 - Option B (without Git)
 
   - Go to https://github.com/abramsj7/XRP-Dash-App
@@ -126,13 +133,15 @@ It is strongly recommended to use a virtual environment to avoid conflicts with 
 
 Windows
 ```bash
-python -m venv venv
+py -m venv venv
+
 venv\Scripts\activate
 ```
 
 Mac OS / Linux
 ```bash
 python3 -m venv venv
+
 source venv/bin/activate
 ```
 
@@ -165,7 +174,7 @@ You should see output similar to:
 
 Dash is running on http://127.0.0.1:8050/
 
- * Serving Flask app “app” (lazy loading)
+ * Serving Flask app “app”
  * Environment: production
  * Debug mode: on
 
